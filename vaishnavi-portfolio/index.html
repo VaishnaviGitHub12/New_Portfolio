@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vaishnavi Dhage — Full Stack Developer based in Pune, India." />
+  <title>Vaishnavi Dhage | Full Stack Developer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Fallback fonts via system -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ░░ CUSTOM CURSOR ░░ -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ░░ LOADER ░░ -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo">VD<span>.</span></div>
+      <div class="loader-bar-track"><div class="loader-bar-fill"></div></div>
+      <div class="loader-label">LOADING PORTFOLIO</div>
+    </div>
+  </div>
+
+  <!-- ░░ PARTICLE CANVAS ░░ -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- ░░ NAV ░░ -->
+  <header id="header">
+    <nav class="nav-inner">
+      <a href="#home" class="nav-brand" aria-label="Home">
+        <span class="brand-vd">VD</span><span class="brand-dot">.</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="nav-cta magnetic">
+        <span>Get In Touch</span>
+        <i class="cta-arrow">↗</i>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ░░ MOBILE MENU ░░ -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="mobile-close" id="mobile-close" aria-label="Close menu">✕</button>
+    <nav class="mobile-nav">
+      <a href="#about"      class="mobile-link" data-num="01">About</a>
+      <a href="#skills"     class="mobile-link" data-num="02">Skills</a>
+      <a href="#experience" class="mobile-link" data-num="03">Experience</a>
+      <a href="#projects"   class="mobile-link" data-num="04">Projects</a>
+      <a href="#education"  class="mobile-link" data-num="05">Education</a>
+      <a href="#contact"    class="mobile-link" data-num="06">Contact</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- ░░░░░░░░░░░░░░░░ HERO ░░░░░░░░░░░░░░░░ -->
+    <section id="home" class="hero">
+
+      <div class="hero-content">
+
+        <div class="hero-eyebrow" data-reveal>
+          <span class="eyebrow-dot"></span>
+          <span class="eyebrow-text">Available for opportunities · Pune, India</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="title-line" data-reveal data-reveal-delay="1">Hello, I'm</span>
+          <span class="title-line title-name" data-reveal data-reveal-delay="2">
+            <span class="name-text glitch-text" data-text="Vaishnavi">Vaishnavi</span>
+          </span>
+          <span class="title-line title-surname outline-text" data-reveal data-reveal-delay="3">Dhage.</span>
+        </h1>
+
+        <p class="hero-sub" data-reveal data-reveal-delay="4">
+          <span class="tag cyan">Full Stack Developer</span>
+          &nbsp;·&nbsp;
+          <span class="tag pink">React &amp; Django</span>
+          &nbsp;·&nbsp; Lifelong Learner
+        </p>
+
+        <div class="hero-buttons" data-reveal data-reveal-delay="5">
+          <a href="#projects" class="btn btn-primary magnetic">
+            <span class="btn-label">View My Work</span>
+            <span class="btn-bg"></span>
+          </a>
+          <a href="#contact" class="btn btn-outline magnetic">
+            <span class="btn-label">Let's Talk</span>
+          </a>
+        </div>
+
+        <div class="hero-stats" data-reveal data-reveal-delay="6">
+          <div class="stat">
+            <span class="stat-val"><span class="countup" data-target="20">0</span>+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-val"><span class="countup" data-target="8">0</span>+</span>
+            <span class="stat-label">Technologies</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-val"><span class="countup" data-target="100">0</span>%</span>
+            <span class="stat-label">Dedication</span>
+          </div>
+        </div>
+
+      </div><!-- /.hero-content -->
+
+      <!-- Floating tech pills -->
+      <aside class="floating-pills" aria-hidden="true">
+        <div class="pill pill-purple float-anim">⚛&nbsp; React JS</div>
+        <div class="pill pill-blue float-anim" style="--delay:0.6s">🐍&nbsp; Python</div>
+        <div class="pill pill-green float-anim" style="--delay:1.2s">🌿&nbsp; MongoDB</div>
+        <div class="pill pill-pink float-anim" style="--delay:1.8s">🎨&nbsp; Tailwind</div>
+        <div class="pill pill-purple float-anim" style="--delay:2.4s">🚀&nbsp; Next JS</div>
+      </aside>
+
+      <!-- Scroll cue -->
+      <div class="scroll-cue" aria-hidden="true">
+        <span class="scroll-text">SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+
+    </section><!-- /#home -->
+
+
+    <!-- ░░░░░░░░░░░░░░░░ ABOUT ░░░░░░░░░░░░░░░░ -->
+    <section id="about" class="section section-alt">
+      <div class="container">
+
+        <div class="about-grid">
+
+          <!-- Image stack -->
+          <div class="about-visual reveal-left">
+            <div class="img-deco-border"></div>
+            <div class="img-wrapper">
+              <img
+                src="https://vaishnavilive.vercel.app/images/photo1.jpg"
+                alt="Vaishnavi Dhage"
+                class="about-photo"
+                loading="lazy"
+              />
+              <div class="img-overlay"></div>
+            </div>
+            <div class="img-badge">
+              <span class="badge-num">20+</span>
+              <span class="badge-lbl">Projects</span>
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div class="about-text reveal-right">
+            <div class="section-tag">About Me</div>
+            <h2 class="section-title">Passionate about <em>building</em> things that matter</h2>
+
+            <p>Computer Science Engineering student at G. H. Raisoni Institute of Engineering &amp; Technology, Nagpur. I'm a passionate programmer who loves working on challenging problems.</p>
+            <p>My goal is to join a dynamic team, contribute to impactful projects, and create innovative solutions. Let's build something incredible together!</p>
+
+            <div class="info-cards">
+              <div class="info-card">
+                <span class="info-icon">🎓</span>
+                <strong>Education</strong>
+                <span>B-Tech CSE · GHRIET Nagpur</span>
+              </div>
+              <div class="info-card">
+                <span class="info-icon">💻</span>
+                <strong>Projects</strong>
+                <span>20+ apps across web &amp; AI</span>
+              </div>
+              <div class="info-card">
+                <span class="info-icon">📍</span>
+                <strong>Location</strong>
+                <span>Pune, Maharashtra, India</span>
+              </div>
+              <div class="info-card">
+                <span class="info-icon">🚀</span>
+                <strong>Status</strong>
+                <span class="status-available"><span class="pulse"></span>Open to Work</span>
+              </div>
+            </div>
+
+            <div class="tools-section">
+              <span class="tools-label">Tools I use</span>
+              <div class="tool-chips">
+                <span class="chip">VS Code</span>
+                <span class="chip">GitHub</span>
+                <span class="chip">Vercel</span>
+                <span class="chip">MongoDB</span>
+                <span class="chip">Jupyter</span>
+                <span class="chip">PyCharm</span>
+                <span class="chip">Canva</span>
+                <span class="chip">Figma</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /#about -->
+
+
+    <!-- ░░░░░░░░░░░░░░░░ SKILLS ░░░░░░░░░░░░░░░░ -->
+    <section id="skills" class="section">
+      <div class="container">
+
+        <div class="section-header reveal-up">
+          <div class="section-tag">Skills</div>
+          <h2 class="section-title">Skills &amp; <em>Expertise</em></h2>
+          <p class="section-sub">Technologies I work with daily</p>
+        </div>
+
+        <div class="skills-grid">
+
+          <div class="skill-card reveal-up" style="--card-delay: 0.1s">
+            <div class="skill-card-glow"></div>
+            <div class="skill-top">
+              <div class="skill-icon purple-icon">⌨️</div>
+              <div class="skill-num">05</div>
+            </div>
+            <h3 class="skill-title">Languages</h3>
+            <div class="skill-tags">
+              <span class="stag">C</span>
+              <span class="stag">C++</span>
+              <span class="stag">Python</span>
+              <span class="stag">Java</span>
+              <span class="stag">JavaScript</span>
+            </div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+          </div>
+
+          <div class="skill-card reveal-up" style="--card-delay: 0.2s">
+            <div class="skill-card-glow cyan-glow"></div>
+            <div class="skill-top">
+              <div class="skill-icon cyan-icon">🌐</div>
+              <div class="skill-num">06</div>
+            </div>
+            <h3 class="skill-title">Frontend</h3>
+            <div class="skill-tags">
+              <span class="stag">HTML5</span>
+              <span class="stag">CSS3</span>
+              <span class="stag">React JS</span>
+              <span class="stag">Tailwind</span>
+              <span class="stag">Bootstrap</span>
+              <span class="stag">Django</span>
+            </div>
+            <div class="skill-bar-track"><div class="skill-bar-fill cyan-fill" data-width="90"></div></div>
+          </div>
+
+          <div class="skill-card reveal-up" style="--card-delay: 0.3s">
+            <div class="skill-card-glow pink-glow"></div>
+            <div class="skill-top">
+              <div class="skill-icon pink-icon">🗄️</div>
+              <div class="skill-num">05</div>
+            </div>
+            <h3 class="skill-title">Backend &amp; DB</h3>
+            <div class="skill-tags">
+              <span class="stag">MongoDB</span>
+              <span class="stag">SQL</span>
+              <span class="stag">Node.js</span>
+              <span class="stag">Express</span>
+              <span class="stag">Next JS</span>
+            </div>
+            <div class="skill-bar-track"><div class="skill-bar-fill pink-fill" data-width="78"></div></div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /#skills -->
+
+
+    <!-- ░░░░░░░░░░░░░░░░ EXPERIENCE ░░░░░░░░░░░░░░░░ -->
+    <section id="experience" class="section section-alt">
+      <div class="container">
+
+        <div class="section-header reveal-up">
+          <div class="section-tag">Experience</div>
+          <h2 class="section-title">Work &amp; <em>Internships</em></h2>
+        </div>
+
+        <div class="timeline">
+
+          <div class="tl-item reveal-up" style="--card-delay:0.1s">
+            <div class="tl-connector">
+              <div class="tl-dot active-dot"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-meta">
+                <span class="tl-date">2024 – Present</span>
+                <span class="tl-badge">Freelance</span>
+              </div>
+              <h3 class="tl-role">Full Stack Developer</h3>
+              <div class="tl-company">Freelance &amp; Personal Projects</div>
+              <ul class="tl-list">
+                <li>Built and deployed production websites for Galaxy Exports and Century Science Institute.</li>
+                <li>Developed MERN stack e-commerce platform (Samyak Mart) with cart, authentication &amp; payment features.</li>
+                <li>Created AI-integrated tools including a Python RoboSpeaker and Django Employee Management System.</li>
+              </ul>
+              <div class="tl-tags">
+                <span class="stag">React</span><span class="stag">Django</span><span class="stag">MongoDB</span><span class="stag">Node.js</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item reveal-up" style="--card-delay:0.2s">
+            <div class="tl-connector">
+              <div class="tl-dot"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-meta">
+                <span class="tl-date">2023</span>
+                <span class="tl-badge">Open Source</span>
+              </div>
+              <h3 class="tl-role">Web Development Intern</h3>
+              <div class="tl-company">Open Source Contributor</div>
+              <ul class="tl-list">
+                <li>Contributed to open source frontend projects, improving UI/UX and code quality.</li>
+                <li>Built responsive web apps with React, Tailwind CSS, and modern JavaScript.</li>
+                <li>Collaborated via GitHub using PRs, issues, and structured code reviews.</li>
+              </ul>
+              <div class="tl-tags">
+                <span class="stag">React</span><span class="stag">Tailwind</span><span class="stag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /#experience -->
+
+
+    <!-- ░░░░░░░░░░░░░░░░ PROJECTS ░░░░░░░░░░░░░░░░ -->
+    <section id="projects" class="section">
+      <div class="container">
+
+        <div class="section-header reveal-up">
+          <div class="section-tag">Projects</div>
+          <h2 class="section-title">Featured <em>Projects</em></h2>
+          <p class="section-sub">Things I've built — from full-stack apps to fun experiments</p>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="project-card reveal-up" style="--card-delay:0.05s">
+            <div class="project-glow"></div>
+            <div class="project-top">
+              <span class="project-emoji">🛒</span>
+              <a href="https://samyakmart.vercel.app/" target="_blank" rel="noopener" class="project-link-btn" aria-label="View Ecommerce project">↗</a>
+            </div>
+            <h3 class="project-title">Ecommerce Web App</h3>
+            <p class="project-desc">Full-featured MERN stack e-commerce with product listings, cart, auth, and a clean responsive UI.</p>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="stag">MongoDB</span><span class="stag">Express</span><span class="stag">React</span><span class="stag">Node.js</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" style="--card-delay:0.1s">
+            <div class="project-glow cyan-glow"></div>
+            <div class="project-top">
+              <span class="project-emoji">🌤️</span>
+              <a href="https://seetodaysweather.vercel.app/" target="_blank" rel="noopener" class="project-link-btn" aria-label="View Weather App">↗</a>
+            </div>
+            <h3 class="project-title">Weather App</h3>
+            <p class="project-desc">Real-time weather using public APIs. Conditions, temperature, humidity and forecast for any city.</p>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="stag">JavaScript</span><span class="stag">REST API</span><span class="stag">CSS3</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" style="--card-delay:0.15s">
+            <div class="project-glow pink-glow"></div>
+            <div class="project-top">
+              <span class="project-emoji">👨‍💼</span>
+              <a href="https://github.com/VaishnaviGitHub12/office-employee-management-system" target="_blank" rel="noopener" class="project-link-btn" aria-label="View Employee Management project">↗</a>
+            </div>
+            <h3 class="project-title">Employee Management</h3>
+            <p class="project-desc">Django-based system to manage employee records, attendance, and payroll with a full admin dashboard.</p>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="stag">Python</span><span class="stag">Django</span><span class="stag">SQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" style="--card-delay:0.2s">
+            <div class="project-glow"></div>
+            <div class="project-top">
+              <span class="project-emoji">📸</span>
+              <a href="https://foto-finder.vercel.app/" target="_blank" rel="noopener" class="project-link-btn" aria-label="View Photo Finder">↗</a>
+            </div>
+            <h3 class="project-title">Photo Finder</h3>
+            <p class="project-desc">Search high-quality images via Unsplash API. Fast, minimal, and beautifully responsive.</p>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="stag">HTML</span><span class="stag">CSS</span><span class="stag">JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" style="--card-delay:0.25s">
+            <div class="project-glow cyan-glow"></div>
+            <div class="project-top">
+              <span class="project-emoji">🔐</span>
+              <a href="https://password-generator-rl1a.vercel.app/" target="_blank" rel="noopener" class="project-link-btn" aria-label="View Password Generator">↗</a>
+            </div>
+            <h3 class="project-title">Password Generator</h3>
+            <p class="project-desc">Secure customisable passwords with length, symbol and case options. One-click copy to clipboard.</p>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="stag">HTML</span><span class="stag">CSS</span><span class="stag">JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" style="--card-delay:0.3s">
+            <div class="project-glow pink-glow"></div>
+            <div class="project-top">
+              <span class="project-emoji">🏫</span>
+              <a href="https://www.centuryscienceinstitute.in/" target="_blank" rel="noopener" class="project-link-btn" aria-label="View Century Science Institute">↗</a>
+            </div>
+            <h3 class="project-title">Century Science Institute</h3>
+            <p class="project-desc">Production website for a coaching institute — responsive, with courses, faculty profiles and contact form.</p>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="stag">HTML</span><span class="stag">CSS</span><span class="stag">JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="projects-cta reveal-up">
+          <a href="https://github.com/VaishnaviGitHub12?tab=repositories" target="_blank" rel="noopener" class="btn btn-outline magnetic">
+            <span class="btn-label">View All on GitHub →</span>
+          </a>
+        </div>
+
+      </div>
+    </section><!-- /#projects -->
+
+
+    <!-- ░░░░░░░░░░░░░░░░ EDUCATION ░░░░░░░░░░░░░░░░ -->
+    <section id="education" class="section section-alt">
+      <div class="container">
+
+        <div class="section-header reveal-up">
+          <div class="section-tag">Education</div>
+          <h2 class="section-title">Academic <em>Background</em></h2>
+        </div>
+
+        <div class="edu-grid">
+
+          <div class="edu-card reveal-up" style="--card-delay:0.1s">
+            <div class="edu-stripe"></div>
+            <div class="edu-icon">🎓</div>
+            <h3 class="edu-degree">B.Tech in Computer Science &amp; Engineering</h3>
+            <div class="edu-uni">G. H. Raisoni Institute of Engineering &amp; Technology</div>
+            <div class="edu-meta">Nagpur, India &nbsp;·&nbsp; 2020 – 2024</div>
+            <p class="edu-desc">Focused on software development, data structures, algorithms and web technologies. Built 20+ projects spanning full stack, AI/ML, and automation.</p>
+          </div>
+
+          <div class="edu-card reveal-up" style="--card-delay:0.2s">
+            <div class="edu-stripe"></div>
+            <div class="edu-icon">📚</div>
+            <h3 class="edu-degree">HSC — Science (PCM + Computer Science)</h3>
+            <div class="edu-uni">Higher Secondary Education</div>
+            <div class="edu-meta">Nagpur, India &nbsp;·&nbsp; 2018 – 2020</div>
+            <p class="edu-desc">Graduated with distinction. Developed early interest in programming through self-study of Python and web development alongside formal coursework.</p>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /#education -->
+
+
+    <!-- ░░░░░░░░░░░░░░░░ CONTACT ░░░░░░░░░░░░░░░░ -->
+    <section id="contact" class="section">
+      <div class="container">
+
+        <div class="contact-grid">
+
+          <!-- Left: info -->
+          <div class="contact-info reveal-left">
+            <div class="section-tag">Contact</div>
+            <h2 class="section-title">Let's <em>Connect</em></h2>
+            <p class="contact-desc">Got a project idea, job opportunity, or just want to say hi? My inbox is always open.</p>
+
+            <div class="contact-links">
+              <a href="mailto:vaishnavidhage32@gmail.com" class="contact-link">
+                <span class="cl-icon">✉️</span>
+                <div class="cl-text">
+                  <span class="cl-label">Email</span>
+                  <span class="cl-value">vaishnavidhage32@gmail.com</span>
+                </div>
+                <span class="cl-arrow">↗</span>
+              </a>
+              <a href="https://www.linkedin.com/in/vaishnavidhage" target="_blank" rel="noopener" class="contact-link">
+                <span class="cl-icon">💼</span>
+                <div class="cl-text">
+                  <span class="cl-label">LinkedIn</span>
+                  <span class="cl-value">linkedin.com/in/vaishnavidhage</span>
+                </div>
+                <span class="cl-arrow">↗</span>
+              </a>
+              <a href="https://github.com/VaishnaviGitHub12" target="_blank" rel="noopener" class="contact-link">
+                <span class="cl-icon">🐙</span>
+                <div class="cl-text">
+                  <span class="cl-label">GitHub</span>
+                  <span class="cl-value">github.com/VaishnaviGitHub12</span>
+                </div>
+                <span class="cl-arrow">↗</span>
+              </a>
+              <a href="https://medium.com/@vaishnavidhage32" target="_blank" rel="noopener" class="contact-link">
+                <span class="cl-icon">📝</span>
+                <div class="cl-text">
+                  <span class="cl-label">Medium</span>
+                  <span class="cl-value">medium.com/@vaishnavidhage32</span>
+                </div>
+                <span class="cl-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div class="contact-form-wrap reveal-right">
+            <div class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name" class="form-label">Your Name</label>
+                  <input type="text" id="name" name="name" class="form-input" placeholder="Vaishnavi Dhage" />
+                </div>
+                <div class="form-group">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="hello@example.com" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-input" placeholder="Project Collaboration" />
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" class="form-textarea" placeholder="Hi Vaishnavi, I'd love to connect about..."></textarea>
+              </div>
+              <button type="button" class="btn btn-primary magnetic" id="send-btn">
+                <span class="btn-label">Send Message</span>
+                <span class="btn-bg"></span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /#contact -->
+
+  </main>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-copy">© 2026 Vaishnavi Dhage. All rights reserved.</div>
+      <div class="footer-socials">
+        <a href="https://github.com/VaishnaviGitHub12" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/vaishnavidhage" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+        <a href="https://medium.com/@vaishnavidhage32" target="_blank" rel="noopener" class="footer-link">Medium</a>
+        <a href="https://www.instagram.com/_vaishnavi_dhage_/" target="_blank" rel="noopener" class="footer-link">Instagram</a>
+        <a href="https://www.hackerrank.com/profile/vaishnavidhage32" target="_blank" rel="noopener" class="footer-link">HackerRank</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
